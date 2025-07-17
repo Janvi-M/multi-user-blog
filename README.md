@@ -33,7 +33,7 @@ A modern, full-stack **MNRN (MongoDB, Next.js, React, Node.js)** blog platform s
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="/Users/janvimunshi/Downloads/multi-user-blog/public/homescreen.png" alt="HomeScreen" width="700px">
+    <img src="./public/homescreen.png" alt="HomeScreen" width="700px">
 </div>
 
 ---
