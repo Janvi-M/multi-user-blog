@@ -70,52 +70,66 @@ pnpm run dev
 Visit: http://localhost:3000
 ```
 
-## 🧪 Usage Guide
+# 🧪 Usage Guide
 
+- Register or log in with your credentials  
+- Create blogs from the **New Post** page  
+- View all **published** posts on the homepage  
+- Manage your posts (edit/delete) via the **Dashboard**  
+- Use **search**, **filter**, and **pagination** to explore blogs by topic or tag  
 
-Register or log in with your credentials
-Create blogs from the New Post page
-View all published posts on the homepage
-Manage your posts (edit/delete) via the Dashboard
-Use search, filter, and pagination to explore blogs by topic or tag
+---
 
 ## 📁 Project Structure
 
+```
 multi-user-blog/
-├── app/           # Next.js App Router - pages, layouts, API routes
-├── models/        # Mongoose schemas (User, Blog)
-├── lib/           # MongoDB connection logic
-├── components/    # Reusable UI components
-├── contexts/      # Auth context for session handling
-├── public/        # Static assets (images, screenshots)
-└── styles/        # Tailwind and global styles
+├── app/         # Next.js App Router - pages, layouts, API routes
+├── models/      # Mongoose schemas (User, Blog)
+├── lib/         # MongoDB connection logic
+├── components/  # Reusable UI components
+├── contexts/    # Auth context for session handling
+├── public/      # Static assets (images, screenshots)
+└── styles/      # Tailwind and global styles
+```
+
+
+
+---
 
 ## 🔐 Security Practices
 
-Passwords are hashed using bcrypt
-Session management via NextAuth.js
-.env.local is gitignored — secrets stay private
-Never commit environment secrets to version control
+- Passwords are hashed using **bcrypt**
+- Session management is handled via **NextAuth.js**
+- `.env.local` is **.gitignored** to keep secrets private
+- Never commit environment secrets to version control
+
+---
 
 ## 📦 API Endpoints
 
-Method	Route	Description
-POST	/api/auth/signup	Register new user
-GET	/api/blogs	Get all published blogs
-POST	/api/blogs	Create new blog post
-GET	/api/blogs/:id	Get blog by ID
-PUT	/api/blogs/:id	Update blog (author only)
-DELETE	/api/blogs/:id	Delete blog (author only)
+| Method | Route             | Description               |
+|--------|-------------------|---------------------------|
+| POST   | `/api/auth/signup`| Register new user         |
+| GET    | `/api/blogs`      | Get all published blogs   |
+| POST   | `/api/blogs`      | Create new blog post      |
+| GET    | `/api/blogs/:id`  | Get blog by ID            |
+| PUT    | `/api/blogs/:id`  | Update blog (author only) |
+| DELETE | `/api/blogs/:id`  | Delete blog (author only) |
+
+---
 
 ## 💡 Core Logic Breakdown
 
 ### 🔐 Authentication
-Email/password-based login with NextAuth.js
-Passwords hashed with bcryptjs
-JWT-based session tokens secured via JWT_SECRET and NEXTAUTH_SECRET
+
+- Email/password-based login via **NextAuth.js**
+- Passwords hashed using `bcryptjs`
+- Session tokens signed with `JWT_SECRET` and `NEXTAUTH_SECRET`
 
 ### ✍️ Blog Management
-Only logged-in users can create, edit, or delete their posts
-Blogs include structured fields: title, excerpt, content, tags, category, coverImage, and status
-Drafts are private to the author
-Published posts are public and searchable
+
+- Only logged-in users can **create**, **edit**, or **delete** their own posts
+- Each blog includes: `title`, `excerpt`, `content`, `tags`, `category`, `coverImage`, and `status`
+- **Drafts** are only visible to the author
+- **Published** posts are visible to all users
